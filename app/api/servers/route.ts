@@ -23,7 +23,7 @@ const server=await db.server.create({
                 {name: "general", profileId: profile.id}
             ]
         },
-        
+
     members:{
         create:[
            { profileId: profile.id, role: MemberRole.ADMIN }
@@ -31,6 +31,7 @@ const server=await db.server.create({
     }
     }
 })
+return NextResponse.json(server)
     } catch (error) {
         console.log("[SERVERS_POST]", error);
         return new NextResponse ("INTERNAL Error",{status:500});
