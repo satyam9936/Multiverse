@@ -57,10 +57,7 @@ export function MembersModal() {
     try {
       setLoadingId(memberId);
 
-      const url = qs.stringifyUrl({
-        url: `/api/members/${memberId}`,
-        query: { serverId: server?.id }
-      });
+      const url = `/api/members/${memberId}?${qs.stringify({ serverId: server?.id })}`;
 
       const response = await axios.delete(url);
 
@@ -77,10 +74,7 @@ export function MembersModal() {
     try {
       setLoadingId(memberId);
 
-      const url = qs.stringifyUrl({
-        url: `/api/members/${memberId}`,
-        query: { serverId: server?.id }
-      });
+      const url = `/api/members/${memberId}?${new URLSearchParams({ serverId: server?.id })}`;
 
       const response = await axios.patch(url, { role });
 
@@ -172,3 +166,4 @@ export function MembersModal() {
     </Dialog>
   );
 }
+"query-string"

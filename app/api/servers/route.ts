@@ -18,7 +18,7 @@ const server=await db.server.create({
         name,
         imageUrl,
         inviteCode: uuidv4(),
-        channel:{
+        channels:{
             create: [
                 {name: "general", profileId: profile.id}
             ]
